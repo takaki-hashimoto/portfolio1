@@ -689,6 +689,7 @@ section {
     text-decoration: none;
     color: #000;
     position: relative;
+    z-index: 1;
 }
 
 
