@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./prof.css">
+    <script src="../gsap/gsap.js"></script>
+    <script src="../gsap/ScrollTrigger.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+    <div class="loading" id="loading"></div>
+
+    <div class="up"></div>
+    <div class="down"></div>
+    <div class="load_line"></div>
+
+    <header id="header">
+        <nav class="header-nav">
+            <div class="header-l-box"><a href="../index.html"><img src="../top_img/hidariue4.png" alt=""></a></div>
+            <div class="header-r-box">
+                <!-- <ul class="color_change"> -->
+                <ul>
+                    <li><a href="./prof.html">
+                            <h6>About</h6>
+                        </a></li>
+                    <li><a href="../index.html#skills">
+                            <h6>Skills</h6>
+                        </a></li>
+                    <li><a href="../index.html#works">
+                            <h6>Works</h6>
+                        </a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="profile_firstsection">
+
+            <div class="main-visual_box">
+                <div class="main-visual_imgbox">
+                    <div class="img1_justbox bottom_d2000">
+                        <img class="img1" src="./prof_img/prof2.jpg" alt="">
+                        <div class="img2_justbox bottom_d4000">
+                            <img class="img2" src="./prof_img/prof_logo.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="textloop_box">
+                    <h1 class="loop">Takaki Hashimoto </h1>
+                    <h1 class="loop loop2">Takaki Hashimoto </h1>
+                </div>
+            </div>
+
+            <div class="main-visual_underbox">
+                <div class="main_textbox">
+                    <h5>橋本 卓樹 - Takaki Hashimoto</h5>
+                    <h6>大学卒業後、公教育としての教職と私教育としての教育プランナーを経験。
+                        2023年8月よりWebフロントエンドについての勉強をしています。
+                        好きなことはゲームや数学関係の学習をすること、学生の頃には麻雀にもハマりました。
+                        教育業界で培った傾聴力やコミュニケーション能力、自身の強みである数学的思考を活かして、
+                        人の心を動かせるような物作りをしていきたいです。
+                    </h6>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="profile_secondsection">
+            <!-- <div class="maintitle_box">
+                <h1 class="eachTextAnime" id="about">Trajectory</h1>
+            </div> -->
+
+
+            <div class="area js-area">
+                <div class="wrap js-wrap">
+
+                    <!-- <div class="wrap_line"></div> -->
+
+                    <div class="wrap_titlebox">
+                        <h1 class="eachTextAnime">Trajectory</h1>
+                        <h3>今日まで</h3>
+                    </div>
+
+                    <div class="wrap_endtitlebox">
+                        <h1>Takaki.H</h1>
+                    </div>
+
+                    <div class="item js-item prof_box">
+                        <div class="prof_bigtextbox1">
+                            <div class="prof_textbox normal6">
+                                <h6 class="overtext1">1994.01</h6>
+                                <h6 class="overtext2">文字より数字が好きだった幼少期</h6>
+                                <h6 class="undertext">
+                                    北海道札幌市に生まれる。算数が好きで文字より数字が好きであることに気付く。
+                                    本は一切読まず、車のナンバープレートで数遊びをするのがいつしか癖に。
+                                </h6>
+                                <div class="prof_line"></div>
+                                <div class="prof_dots"></div>
+                            </div>
+
+                            <div class="prof_textbox normal7">
+                                <h6 class="overtext1">2006.04</h6>
+                                <h6 class="overtext2">努力を学んだ少年サッカー時代</h6>
+                                <h6 class="undertext">
+                                    年少の頃からサッカーを始め、小学4年 ~ 中学3年間はクラブチームでプレー。
+                                    厳しい環境下で、努力し続けることの難しさとその価値を知る。
+                                </h6>
+                                <div class="prof_line"></div>
+                                <div class="prof_dots"></div>
+                            </div>
+                            
+                            <div class="prof_textbox normal8">
+                                <h6 class="overtext1">2009.04</h6>
+                                <h6 class="overtext2">教える楽しさを知った中高時代</h6>
+                                <h6 class="undertext">
+                                    文武両道を掲げ、勉学にも精力する。人に教えることで己の学びが深まる実感を持つとともに、
+                                    説明してわかってもらえたときの満足感と喜びを知る。
+                                </h6>
+                                <div class="prof_line"></div>
+                                <div class="prof_dots"></div>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="item js-item prof_box">                        
+                        <div class="prof_bigtextbox2">
+                            <div class="prof_textbox normal9">
+                                <h6 class="overtext1">2012.04</h6>
+                                <h6 class="overtext2">得意分野を突き詰めた大学時代</h6>
+                                <h6 class="undertext">
+                                    北海道教育大学数学教育専攻へ入学。幼少期から好きであった数についての理解を深めながら、
+                                    教育学についても一から学び、各種教員免許状を取得。
+                                </h6>
+                                <div class="prof_line"></div>
+                                <div class="prof_dots"></div>
+                            </div>
+                            <div class="prof_textbox normal10">
+                                <h6 class="overtext1">2016.04</h6>
+                                <h6 class="overtext2">高校数学教諭・教室長として就職</h6>
+                                <h6 class="undertext">
+                                    自身の特性を生かせる職を経験する。日々を教育の世界で過ごしていく中で、
+                                    度々耳にすることが多くなった「プログラミング」というものに興味を持つ。
+                                </h6>
+                                <div class="prof_line"></div>
+                                <div class="prof_dots"></div>
+                            </div>
+                            <div class="prof_textbox normal11">
+                                <h6 class="overtext1">2023.08</h6>
+                                <h6 class="overtext2">プログラミングの勉強を始める</h6>
+                                <h6 class="undertext">
+                                    未知のモノを学んでみたいという知的好奇心からプログラミングについて調べる。
+                                    北関東学院へ入学し、本格的にフロントエンドの学習を始める。
+                                </h6>
+                                <div class="prof_line prof_longline"></div>
+                                <div class="prof_dots"></div>
+                            </div>    
+                        </div>
+                    </div>
+                    <!-- <div class="item js-item">
+                        <span>横スクロール3</span>
+                    </div> -->
+                </div>
+                <div class="prof_yohakubox"></div>    
+            </div>
+
+        </section>
+
+        <section class="profile_backsecondsection"></section>
+
+        <section class="profile_thirdsection">
+            <div class="section_inner">
+                <div class="sectiontitle_box">
+                    <h1 class="eachTextAnime">Strength</h1>
+                    <h3>私の強み</h3>
+                </div>
+                <div class="strength_circlebox">
+                    <div class="circlebox circle1">
+                        <div class="shape normal">
+                            <h5 class="bottom">Curious mind</h5>
+                        </div>
+                    </div>
+                    <div class="circlebox circle2">
+                        <div class="shape2">
+                            <h5 class="bottom2">Efficiency</h5>
+                        </div>
+                    </div>
+                    <div class="circlebox circle3">
+                        <div class="shape3">
+                            <h5 class="bottom3">Communication</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="strength_numberbox">
+                    <span class="Text-Span JS_AddLine"></span>
+                    <h6>(01)</h6>
+                </div>
+                <div class="strength_textbox">
+                    <div class="strength_l_textbox normal4">
+                        <h1>Curious mind</h1>
+                    </div>
+                    <div class="strength_r_textbox normal5">
+                        <h6>何事に対しても半端な理解で終わるのではなく、
+                            自分のものとしてきちんと理解し、極めたいという強い気持ちがあります。
+                            学びを得る過程で、追究するための努力を惜しみません。
+                            これまでも与えられた役割のためであれば、
+                            その分野を徹底的に研究し望ましい成果をあげてきました。
+                            人一倍強い知的好奇心をもとに、自分自身をアップデートし、
+                            貪欲に取り組み続けることができます。
+                        </h6>
+                    </div>
+                </div>
+                <div class="strength_numberbox">
+                    <span class="Text-Span JS_AddLine"></span>
+                    <h6>(02)</h6>
+                </div>
+                <div class="strength_textbox">
+                    <div class="strength_l_textbox normal4">
+                        <h1>Efficiency</h1>
+                    </div>
+                    <div class="strength_r_textbox normal5">
+                        <h6>日頃から効率を意識して行動するようにしています。
+                            ゴールまでの道筋を予めを複数通り考え、
+                            その中から最効率な物を選んだ行動ができます。
+                            仕事においても作業効率を上げ、より多くの役割を果たすことで、
+                            企業への貢献を果たしていきたいと考えています。
+                            また、コードにおいても効率を意識し、
+                            誰が見てもわかりやすく、無駄のないものを記述するよう心がけています。
+                        </h6>
+                    </div>
+                </div>
+                <div class="strength_numberbox">
+                    <span class="Text-Span JS_AddLine"></span>
+                    <h6>(03)</h6>
+                </div>
+                <div class="strength_textbox">
+                    <div class="strength_l_textbox normal4">
+                        <h1>Communication</h1>
+                    </div>
+                    <div class="strength_r_textbox normal5">
+                        <h6>コミュニケーションの場において、相手のことを正しく理解し、
+                            良好な関係づくりができます。前職では生徒やお客様と接する際、
+                            「相手が本当に求めていること・伝えたいこと」を察して理解し、
+                            それを解決できるよう、相手に寄り添った対話を心がけてきました。
+                            この経験で培ってきた能力を活かし、
+                            クライアントさまや職場のメンバーとの円滑なコミュニケーションを
+                            図ることができます。
+
+                        </h6>
+                    </div>
+                </div>
+            </div> 
+        </section>
+    </main>
+
+    <footer>
+        <div class="footbox">
+            <div class="foot_lbox">
+                <small>All Rights Reserved 2023 ©︎ Takaki Hashimoto</small>
+            </div>
+            <div class="foot_rbox">
+                <a href="#header"><h6>(Back to top)</h6></a>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- <h6 class="yohaku" data-midnight="dark"></h6> -->
+
+
+    <script src="./prof.js"></script>
+    <script>
+        $(".load_line").animate({ "width": "100%" }, 750, function () {
+            $(".load_line").css("right", 0);
+            $(".load_line").animate({ "width": "0%" }, 500, function () {
+                $(".up").animate({ "height": "0%" });
+                $(".down").animate({ "height": "0%" });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

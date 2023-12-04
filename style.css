@@ -1,0 +1,2352 @@
+@charset "utf-8";
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: bottom;
+}
+
+/* 共通パーツ */
+html{
+    scroll-behavior: smooth;
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Zen Old Mincho', serif;
+    /* font-family: serif; */
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    /* font-family: 'yu mincho'; */
+}
+
+p {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-size: 2.5rem;
+}
+
+h6 {
+    font-size: 1.6rem;
+}
+
+
+/* ローディング */
+
+.loading {
+    width: 100%;
+    height: 100vh;
+    transition: all 2s;
+    background: black;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* 切り込み＆開閉エフェクト */
+
+.load_line {
+    width: 0%;
+    height: 1px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    z-index: 50;
+}
+
+.up {
+    width: 100%;
+    height: 50%;
+    background-color: #000;
+    position: fixed;
+    z-index: 49;
+}
+
+.down {
+    width: 100%;
+    height: 50%;
+    background-color: #000;
+    position: fixed;
+    bottom: 0;
+    z-index: 49;
+}
+
+.loading_text {
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    z-index: 51;
+    width: 42ch;
+    animation: typing 2s steps(14), effect .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+}
+ 
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes effect {
+  50% {
+    border-color: transparent
+  }
+}
+
+
+/* ナビゲーション */
+
+nav {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    /* background-color: #666; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    /* 時間の指定 */
+    animation-duration: 4.5s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-top;
+}
+
+/* animation-timing-function について
+    ※ 初期値は ease：最初と最後をゆっくり
+       その他   ease-in-out : 最初と最後をかなりゆっくり
+                ease-in：最初をゆっくり
+                ease-out：最後をゆっくり
+                linear：一定                             */
+
+
+@keyframes fadein-top {
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    90%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-l-box {
+    width: 5%;
+    height: 90%;
+    /* background-image: url(./top_img/hidariue4.png);
+    background-size: contain;
+    background-repeat: no-repeat; */
+    margin-left: 4%;
+}
+
+.header-l-box a {
+    display: flex;
+    align-items: center;
+}
+
+.header-l-box img {
+    width: 90%;
+}
+
+.header-r-box {
+    /* width: auto; */
+    width: 95%;
+    height: 80%;
+    /* background-color: #fff; */
+    margin-right: 1%;
+}
+
+
+nav ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    list-style-type: none;
+    padding-right: 5%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    z-index: 6;
+}
+
+nav ul li a::after {
+    position: absolute;
+    left: -10%;
+    bottom: 10%;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+    transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+    transition: transform 0.5s; /*変形の時間*/
+}
+    
+nav ul li a:hover::after {
+transform: scale(1.2, 1.5);     /*ホバー後、x軸方向に1.2（相対値）伸長 & y軸も同じイメージで伸長*/
+}
+
+nav ul li a h6 {
+    font-weight: bold;
+    font-family: 'freight-big-pro', serif;
+}
+
+
+/* メインビジュアル */
+
+.main-visual {
+    position: relative;
+    width: 100%;
+    height: 125vh;
+    overflow: hidden;
+    /* margin-top: 10vh; */
+}
+
+.main-visual_imgbox {
+    width: 55%;
+    height: 45vh;
+    margin: 2% auto 1%;
+    /* 時間の指定 */
+    animation-duration: 8s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal;
+}
+
+@keyframes fadein-normal {
+    0%{
+        opacity: 0;
+    }
+
+    70%{
+        opacity: 0;
+    }
+
+    80%{
+        opacity: 0.5;
+        transform: scale(1.1);
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.main-visual_imgbox img {
+    width: 100%;
+    height: 100%;
+}
+
+.main-visual h1 {
+    font-weight: normal;
+    font-size: 13rem;
+    line-height: 1.2;
+    font-style: oblique;
+}
+
+.main-visual h1:nth-of-type(1) {
+    margin-left: 10%;
+    padding-top: 3%;
+}
+
+.main-visual h1:nth-of-type(2) {
+    text-align: end;
+    margin-right: 10%;
+    line-height: 0.6;
+}
+
+.eachTextAnime span{opacity: 0;}
+.eachTextAnime.appeartext span{ animation:text_anime_on 1s ease-out forwards; }
+@keyframes text_anime_on {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+.main-visual_subsentencebox {
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.main-visual_subsentencebox h2 {
+    position: relative;
+    font-size: 7rem;
+    font-style: oblique;
+    font-weight: normal;
+    line-height: 0.8;
+    color: #fff;
+    z-index: 1;
+    /* 時間の指定 */
+    animation-duration: 5.5s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-left;
+}
+
+@keyframes fadein-left {
+    0%{
+        opacity: 0;
+        transform: translatex(-40px);
+    }
+
+    90%{
+        opacity: 0;
+        transform: translatex(-40px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translatex(0);
+    }
+}
+
+.subsentence_line {
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #0000008a;
+    top: 55%;
+    left: 10%;
+    /* transform: translateY(50%); */
+}
+
+.subsentence_back {
+    position: absolute;
+    width: 0%;
+    height: 150%;
+    /* background-color: #0202029e; */
+    background-color: #0000008a;
+    /* background-color: #000; */
+    /* background-color: #4c591266; */
+    top: -10%;
+    left: 32%;
+}
+
+
+.main-visual h6 {
+    position: absolute;
+    left: 8%;
+    bottom: 15vh;
+    font-weight: normal;
+
+    position: relative;
+    display: inline-block;
+
+    /* 時間の指定 */
+    animation-duration: 5s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-bottom;
+}
+
+@keyframes fadein-bottom {
+    0%{
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    70%{
+        opacity: 0.3;
+        transform: translateY(40px)
+    }
+
+    80%{
+        opacity: 0.75;
+        transform: translateY(40px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.main-visual h6::after{
+    content: ''; 
+    /* width: 2px;  */
+    width: 1px;
+    height: 300%; 
+    background-color: #736a6a9e; 
+    /* background-color:  #00000022; */
+    /* background-color: #000; */
+    position: absolute; 
+    bottom: -300%;
+    left: 53%; 
+    transform-origin: top;
+
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-name: down;
+}
+
+@keyframes down {
+    0%{
+        transform: scale(1.0, 0);
+    }
+
+    100%{
+        transform: scale(1.0, 1.0);
+    }
+}
+
+
+
+.rightover_imgbox {
+    position: absolute;
+    top: 10%;
+    right: -5%;
+    width: 30%;
+    z-index: 1;
+    transform: skewY(-20deg);
+}
+
+.rightover_imgbox img {
+    width: 100%;
+    /* 時間の指定 */
+    animation-duration: 20s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: infinite; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: kaiten;
+}
+
+@keyframes kaiten {
+    0%{
+        transform: rotate(0);
+    }
+
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+
+
+
+/* 色変え一旦失敗 */
+
+/* .midnightHeader.default h6 {
+    color: black;
+}
+
+.midnightHeader.dark h6{
+    color: white;
+}
+
+.midnightHeader.default {
+    overflow: hidden;
+}
+
+
+.midnightHeader.default .midnightInner {
+    display: flex;
+    overflow: hidden;
+}
+
+
+.midnightHeader.dark .midnightInner {
+    display: flex;
+    overflow: hidden;
+} */
+
+
+
+
+/* main */
+
+/* section1 私について */
+
+/* sectionタイトル部分 */
+section {
+    width: 100%;
+    height: 125vh;
+    /* background-color: #66666681; */
+
+    /* border-top: 1px solid #000; */
+}
+
+.about_section {
+    margin-top: 5vh;
+}
+
+.section_inner {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+.sectiontitle_box {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: baseline;
+
+    /* border-bottom: 1px solid #000; */
+}
+
+.maintitle_box {
+    width: 20%;
+    height: 100%;
+}
+
+.maintitle_box h1 {
+    font-family: serif;
+    font-size: 8rem;
+    font-weight: normal;
+    margin-top: -100px;
+    padding-top: 100px;
+}
+
+.subtitle_box {
+    width: 80%;
+    height: 100%;
+}
+
+.subtitle_box h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-left: 1%;
+}
+
+
+/* section 私についてのコンテンツ部分 */
+
+.about_mainbox {
+    width: 100%;
+    height: 80vh;
+    /* background-color: yellow; */
+    margin-top: 5vh;
+    display: flex;
+}
+
+.about_sub_lbox {
+    width: 35%;
+    height: 100%;
+
+    /* background-color: blue; */
+}
+
+.sub_l_imgbox {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sub_l_imgbox img {
+    width: 90%;
+    height: 90%;
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.5) ;
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(1.2);
+}
+
+.fadein_n2 {
+    /* 時間の指定 */
+    animation-duration: .8s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal2;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal2 {
+    0%{
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(1.5);
+    }
+
+    100%{
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1.0);
+    }
+}
+
+
+
+.about_sub_rbox {
+    width: 65%;
+    height: 100%;
+
+    /* background-color: orange; */
+}
+
+.sub_r_textbox {
+    width: 80%;
+    height: 60%;
+    margin: 0 auto;
+}
+
+.sub_r_rinkbox {
+    width: 80%;
+    height: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+
+.sub_r_textbox h5,
+.sub_r_rinkbox h5 {
+    font-weight: normal;
+    font-size: 2.2rem;
+}
+
+.sub_r_textbox h5 {
+    margin-top: 15%;
+    margin-bottom: 10%;
+    opacity: 0;
+}
+
+.sub_r_textbox p {
+    font-size: 1.6rem;
+    text-align: justify;
+    line-height: 2.0em;
+    letter-spacing: 0.01em;
+    opacity: 0;
+}
+
+.sub_r_rinkbox h5 {
+    display: inline-block;
+    /* border-bottom: 1px solid #000; */
+    opacity: 0;
+}
+
+.sub_r_rinkbox a {
+    text-decoration: none;
+    color: #000;
+    position: relative;
+}
+
+
+.sub_r_rinkbox a::after {
+    position: absolute;
+    left: 5%;
+    top: 15%;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    transform: scale(1.2, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+    transform-origin: right top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の右端*/
+    transition: transform 0.5s; /*変形の時間*/
+    z-index: 1;
+    }
+    
+    a:hover::after {
+    transform: scale(0.01, 1);     /*ホバー後、x軸方向に1.2（相対値）伸長 & y軸も同じイメージで伸長*/
+    }
+
+
+.fadein_n3 {
+    /* 時間の指定 */
+    animation-duration: 2s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal3;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal3 {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
+.rightunder_imgbox {
+    position: absolute;
+    bottom: 45%;
+    left: -30%;
+    width: 20%;
+}
+
+.rightunder_imgbox img {
+    width: 100%;
+    /* 時間の指定 */
+    animation-duration: 15s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: infinite; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: kaiten2;
+}
+
+@keyframes kaiten2 {
+    0%{
+        transform: rotate(0);
+    }
+
+    100%{
+        transform: rotate(-360deg);
+    }
+}
+
+
+/* section skillsの部分 */
+
+.skills_section {
+    height: 195vh;
+    color: #fff;
+    /* border: 1px solid red; */
+    background-color: #000;
+    padding-top: 20vh;
+}
+
+.skill_sectioninner {
+    height: 60%;
+    background-color: #000;
+    position: relative;
+}
+
+.skill_sectioninner .sectiontitle_box {
+    position: sticky;
+    top: 10%;
+    left: 0;
+}
+
+.skill_sectioninner .subtitle_box h3 {
+    color: #acacac;
+}
+
+
+.skill_mainbox {
+    width: 100%;
+    height: 70vh;
+    /* background-color: yellow; */
+}
+
+.skill_textbigbox {
+    width: 70%;
+    height: 100%;
+    margin-left: 30%;
+    /* background-color: red; */
+}
+
+.skill_textoverbox {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    padding-top: 10%;
+    position: relative;
+    /* background-color: rgba(0, 0, 255, 0.516); */
+}
+
+.skill_textoverbox h6 {
+    width: 5%;
+    padding-top: 1.5%;
+}
+
+.skill_textoverbox h2 {
+    width: 95%;
+    font-style: oblique;
+    font-size: 5rem;
+}
+
+/* .Text-Span {
+    position: relative;
+    z-index: 1;
+} */
+
+.Text-Span:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    width: 0%;
+    height: 2px;
+    /* background: #5bc8ac; */
+    background: #fff;
+    /* z-index: -1; */
+    transition: all 2.0s;
+}
+
+.Text-Span.line_lr:after {
+    width: 100%;
+  }
+
+/* .skill_textline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80%;
+    height: 1px;
+    background-color: #ffffff;
+    z-index: 1;
+} */
+
+
+.skill_textunderbox {
+    width: 100%;
+    height: 65%;
+    /* background-color: rgba(0, 128, 0, 0.364); */
+}
+
+.skill_textunderinnerbox {
+    width: 80%;
+    height: 100%;
+}
+
+.skill_textunderinnerbox h6 {
+    text-align: justify;
+    line-height: 2em;
+    padding-top: 8%;
+    padding-bottom: 8%;
+    font-weight: normal
+}
+
+
+
+.skill_textunder_subbox {
+    display: flex;
+    width: 100%;
+}
+
+.skill_textunder_subbox h6 {
+    padding: 0;
+    font-weight: normal;
+    color: #acacac;
+}
+
+.skill_textunder_sub_lbox{
+    width: 15%;
+}
+
+.skill_textunder_sub_rbox{
+    width: 85%;
+}
+
+
+.fadein_n4 {
+    /* 時間の指定 */
+    animation-duration: 1.0s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal4;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal4 {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.fadein_n5 {
+    /* 時間の指定 */
+    animation-duration: 3s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal5;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal5 {
+    0%{
+        opacity: 0;
+    }
+
+    /* 80% {
+        opacity: 0;
+    } */
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
+
+
+
+/* section worksの部分 */
+
+.work_section {
+    padding-top: 20vh;
+    /* height: 300vh; */
+    height: 160vh;
+
+    /* background-color: pink; */
+}
+
+.work_section .section_inner {
+    /* height: 300vh; */
+    height: 100%;
+
+    /* background-color: powderblue; */
+}
+
+
+.works_box {
+    width: 100%;
+    /* height: 210vh; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10vh;
+
+    /* border: 1px solid #000; */
+}
+
+.works_box a {
+    display: block;
+    width: 30%;
+    height: 40vh;
+    margin-bottom: 5%;
+    color: #000;
+    text-decoration: none;
+
+    /* border: 1px solid #000; */
+}
+
+.works_artbox {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+
+.fadein_b2 {
+    /* 時間の指定 */
+    animation-duration: 1.0s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-bottom2;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom2 {
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadein_b2_2 {
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-bottom2;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom2 {
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    33%{opacity: 0;
+        transform: translateY(20px);
+    }
+
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadein_b2_3 {
+    animation-duration: 2.0s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-bottom2;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom2 {
+    0%{
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    50%{opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+.art_imgbox {
+    width: 100%;
+    overflow: hidden;
+}
+
+.art_imgbox img {
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.art_imgbox img:hover {
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+
+.art_textbox h6:nth-child(1) {
+    color: #0000008a;
+    font-weight: normal;
+    margin-top: 5%;
+}
+
+.art_textbox h6:nth-child(2) {
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+
+
+
+
+.yohaku {
+    width: 100%;
+    height: 200vh;
+    background-color: #00000022;
+}
+
+
+
+/* 
+.otameshidai {
+    width: 100%;
+    height: 100vh;
+    border: 1px solid #000;
+}
+
+.otameshisyou {
+    width: 90%;
+    height: 90%;
+    border: 1px solid #666;
+} */
+
+
+
+
+/* メールリンクの部分 */
+
+.mail_section {
+    width: 100%;
+    /* height: 50vh; */
+    height: 5vh;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.mail_box {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.contact_box{
+    width: 100%;
+    height: 30%;
+}
+.adress_box {
+    width: 100%;
+    height: 70%;
+}
+
+
+.contact_box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.contact_box h6 {
+    font-weight: normal;
+    color: #acacac;
+}
+
+.adress_box {
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+}
+
+.adress_box h1 {
+    font-size: 8rem;
+    font-family:serif;
+    font-weight: bold;
+    color:rgba(0,0,0,.0);
+    /* text-align:center; */
+   -webkit-text-stroke: 1px #fff;
+   transition: all 1.0s;
+}
+
+.adress_box:hover {
+    cursor: pointer;
+}
+
+.adress_box:hover .mailadress {
+    color: #fff;
+    -webkit-text-stroke: 1px #000;
+    transition: all 1.0s;
+}
+
+
+.adress_box a {
+    text-decoration: none;
+}
+
+
+
+.height_up1 {
+    /* 時間の指定 */
+    animation-duration: 0.5s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: height1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes height1 {
+    0%{
+        height: 5vh;
+    }
+
+    100%{
+        height: 50vh;
+    }
+}
+
+
+
+
+
+/* フッター */
+
+footer {
+    width: 100%;
+    height: 7vh;
+    background-color: #000;
+}
+
+.footbox {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    border-top: 1px solid #acacac;
+    align-items: center;
+}
+
+.foot_lbox,
+.foot_rbox {
+    width: 100%;
+    /* height: 100%; */
+}
+
+.foot_lbox small {
+    font-size: 1.0rem;
+    color: #acacac;
+}
+
+.foot_rbox {
+    text-align: right;
+}
+
+.foot_rbox a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.foot_rbox h6 {
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------- */
+
+  /* レスポンシブ準備 */
+
+
+  .openbtn {
+    /* background: #fff; */
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    /*  */
+    position: relative;
+    position: fixed;
+    top: 2%;
+    right: 2%;
+    z-index: 10;
+    cursor: pointer;
+    /* position: relative; */
+
+    display: none;
+}
+
+
+
+.openbtn span:nth-child(1) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    transition: all 0.5s;
+}
+
+.openbtn span:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+    color: #fff;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+
+
+
+ /* レスポンシブ */
+
+@media screen and (max-width: 1300px) {
+    html {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    html {
+        font-size: 7.5px;
+    }
+}
+
+
+/* タブレット大サイズ */
+
+@media screen and (max-width: 1025px) {
+    html {
+        font-size: 10px;
+    }
+
+    h6 {
+        font-size: 1.3rem;
+    }
+
+
+    .main-visual h1 {
+        font-size: 10rem;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 6%;
+    }
+
+    .main-visual_subsentencebox h2 {
+        font-size: 5rem;
+    }
+
+    .main-visual_imgbox {
+        width: 65%;
+    }
+
+    .main-visual h6 {
+        bottom: 10vh;
+    }
+
+
+    /* About */
+
+    .maintitle_box h1 {
+        font-size: 5.5rem;
+    }
+
+    .subtitle_box h3 {
+        font-size: 1.4rem;
+    }
+
+    .about_sub_lbox {
+        width: 45%;
+    }
+
+    .about_sub_rbox {
+        width: 55%;
+    }
+
+    .sub_r_textbox {
+        width: 100%;
+        margin: 0;
+    }
+
+    .sub_r_rinkbox {
+        width: 100%;
+        margin: 0;
+    }
+
+    .rightunder_imgbox {
+        bottom: 40%;
+        left: -18%;
+    }
+
+
+
+    .sub_r_textbox p {
+        font-size: 1.5rem;
+    }
+
+
+
+    /* skills */
+
+    .skills_section {
+        height: 195vh;
+    }
+
+
+    .skill_mainbox {
+        height: 60vh;
+    }
+
+
+    .skill_textbigbox {
+        width: 65%;
+        margin-left: 35%;
+    }
+
+    .skill_textoverbox h2 {
+        font-size: 4rem;
+    }
+
+    .Text-Span:after {
+        bottom: 20px;
+    }
+
+    .skill_textunderinnerbox {
+        width: 100%;
+    }
+
+    .skill_textunderinnerbox h6 {
+        padding-top: 5%;
+    }
+
+    .skill_textunder_subbox h6 {
+        padding-top: 0;
+    }
+
+
+    /* works */
+
+
+    /* メール */
+
+
+    .adress_box h1 {
+        font-size: 5.5rem
+    }
+
+    @keyframes height1 {
+        0%{
+            height: 5vh;
+        }
+    
+        100%{
+            height: 30vh;
+        }
+    }
+}
+
+
+@media screen and (max-width: 961px) {
+
+    h6 {
+        font-size: 1.2rem;
+    }
+
+    .main-visual h1 {
+        font-size: 9.5rem;
+    }
+
+    .main-visual_subsentencebox h2 {
+        font-size: 4rem;
+    }
+
+    .main-visual_imgbox {
+        width: 70%;
+    }
+
+
+    .maintitle_box h1 {
+        font-size: 4rem;
+    }
+
+    .subtitle_box h3 {
+        font-size: 1.2rem;
+    }
+
+    .sub_r_textbox h5, .sub_r_rinkbox h5 {
+        font-size: 2rem;
+    }
+
+    .sub_r_textbox p {
+        font-size: 1.4rem;
+    }
+
+
+    .Text-Span:after {
+        bottom: 35px;
+    }
+
+
+    .adress_box h1 {
+        font-size: 4.5rem;
+    }
+}
+
+
+
+/* タブレット中 */
+
+@media screen and (max-width: 769px) {
+
+    .openbtn {
+        display: block;
+    }
+
+    nav {
+        animation-name: none;
+    }
+
+    .header-nav .nav_listbox {
+        position: fixed;
+        align-items: flex-start;
+        padding-top: 15%;
+        /* top: -100%; */
+        top: 0%;
+        /* right: 0; */
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        box-sizing: border-box;
+        z-index: -100;
+        transition: all .5s;
+        margin: 0;
+        padding: 0;
+
+        visibility: hidden;
+        opacity: 0;
+        transition: all 1.0s;
+    }
+
+    
+
+    .active span:nth-child(1) {
+        opacity: 0;
+        transition: all 0.5s;
+    }
+
+    .active span:nth-child(2) {
+        opacity: 1;
+        transition: all 0.5s;
+    }
+
+
+
+    .header-nav .nav_active {
+        /* top: 0; */
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+    nav ul {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        /* margin-left: 5%;
+        margin-top: 45%; */
+    }
+    
+    li {
+        list-style-type: none;
+        padding-left: 5%;
+        height: 15vh;
+        margin: 0;
+        /* border-bottom: 1px solid #fff; */
+    }
+    
+    nav ul li a {
+        color: #fff;
+        padding: 0;
+    }
+
+    nav ul li a h6 {
+        font-size: 5rem;
+        opacity: 0;
+    }
+
+    .nav_active ul li a h6 {
+        opacity: 1;
+        transition: all 4.0s;
+    }
+
+
+    .header-l-box {
+        width: 5%;
+        height: 90%;
+        margin-left: 0%;
+        width: 10%;
+    }
+
+
+
+    /* メインビジュアル */
+
+    .main-visual {
+        height: 110vh;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 10%;
+        margin-left: 5%;
+    }
+
+    .main-visual h1:nth-of-type(2) {
+        padding-top: 2.5%;
+        margin-right: 5%;
+    }
+
+    .main-visual_subsentencebox h2 {
+        font-size: 3rem;
+        margin-right: 5%;
+    }
+
+    .subsentence_line {
+        left: 7%;
+    }
+
+    .subsentence_back {
+        left: 29%;
+    }
+
+    .main-visual_imgbox {
+        width: 75%;
+    }
+
+
+
+
+
+    /* 全セクション幅変更80% → 95% */
+    .section_inner {
+        width: 95%;
+    }
+
+    /* 全セクションタイトル・幅大きさ変更 */
+    .maintitle_box h1 {
+        font-size: 5rem;
+        padding-left: 5%;
+    }
+
+    .maintitle_box {
+        width: 30%;
+        height: 100%;
+    }
+
+
+
+
+    /* About */
+
+
+    .about_section {
+        height: 185vh;
+    }
+
+    .about_mainbox {
+        height: 80vh;
+        display: block;
+    }
+
+    .about_sub_lbox {
+        width: 100%;
+    }
+
+    .sub_l_imgbox {
+        width: 90%;
+        height: 125%;
+    }
+
+
+    .about_sub_rbox {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .rightunder_imgbox {        
+        top: -230%;
+        left: 70%;
+        width: 30%
+    }
+
+    .sub_r_textbox {
+        height: 50%;
+    }
+
+    .sub_r_textbox h5 {
+        text-align: center;
+        margin-top: 25%;
+        margin-bottom: 5%;
+    }
+
+
+
+
+
+    /* skills */
+
+
+    .skills_section {
+        height: 155vh;
+        padding-top: 15vh;
+    }
+
+    .section_inner {
+        width: 95%;
+        height: 100%;
+    }
+
+    .skill_sectioninner .sectiontitle_box {
+        position: static;
+    }
+
+    .skill_mainbox {
+        height: 55vh;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+
+
+    .skill_textbigbox {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    .skill_textoverbox {
+        padding-top: 5%;
+    }
+
+    .skill_textoverbox h2 {
+        font-size: 3.5rem;
+    }
+
+    
+
+
+
+    /* works */
+
+
+    .work_section {
+        padding-top: 15vh;
+        height: 150vh;
+    }
+
+
+    .works_box {
+        width: 95%;
+        margin: 8vh auto 0;
+    }
+
+    .works_box a {
+        display: block;
+        width: 48%;
+        height: 45vh;
+    }
+
+
+
+    /* 浮かぶ上がるタイミング調整のために
+        北関東水族館の『bottom2_3をbottom2と同じものに改ざん』 */
+
+
+    .fadein_b2_3 {
+        animation-duration: 1.0s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-name: fadein-bottom2;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes fadein-bottom2 {
+        0%{
+            opacity: 0;
+            transform: translateY(20px);
+        }
+    
+        /* 50%{opacity: 0;
+            transform: translateY(20px);
+        } */
+    
+        100%{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+
+
+    /* フッター */
+
+    @keyframes height1 {
+        0%{
+            height: 5vh;
+        }
+    
+        100%{
+            height: 20vh;
+        }
+    }
+}
+
+    
+
+
+
+
+@media screen and (max-width: 671px) {
+
+    .main-visual h1 {
+        font-size: 8.5rem;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 12%;
+    }
+
+
+    .main-visual_subsentencebox h2 {
+        font-size: 2.5rem;
+        margin-right: 5%;
+    }
+
+    .main-visual_imgbox {
+        width: 70%;
+    }
+
+    .rightover_imgbox {
+        top: 15%;
+    }
+
+
+
+
+    .adress_box h1 {
+        font-size: 3.5rem;
+    }
+
+
+}
+
+
+
+@media screen and (max-width: 571px) {
+
+    .main-visual h1 {
+        font-size: 7.5rem;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 20%;
+    }
+
+    .main-visual_imgbox {
+        width: 70%;
+        height: 30%;
+        margin: 5% auto 5%;
+    }
+
+
+
+
+    .maintitle_box h1 {
+        font-size: 4.5rem;
+    }
+
+    .subtitle_box h3 {
+        font-size: 1.1rem;
+    }
+
+    .maintitle_box {
+        width: 35%;
+    }
+
+
+
+
+    .rightunder_imgbox {
+        top: -200%;
+    }
+
+
+
+
+
+    .skill_textoverbox h2 {
+        font-size: 3.3rem;
+    }
+
+    .Text-Span:after {
+        bottom: 50px;
+    }
+
+
+
+
+
+    .art_textbox h6:nth-child(2) {
+        font-size: 1.5rem;
+        font-weight: normal;
+    }
+
+
+
+
+    .adress_box h1 {
+        font-size: 3.3rem;
+    }
+
+
+
+
+    .foot_lbox small {
+        font-size: 0.9rem;
+    }
+
+    .foot_rbox h6 {
+        font-size: 1.0rem;
+    }
+
+}
+
+
+@media screen and (max-width: 521px) {
+
+    h6 {
+        font-size: 1.0rem;
+    }
+
+    .main-visual h1 {
+        font-size: 6rem;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 25%;
+    }
+
+    .main-visual_subsentencebox h2 {
+        font-size: 2.0rem;
+    }
+
+
+    .rightover_imgbox {
+        top: 20%;
+    }
+
+    .main-visual h6 {
+        bottom: -10vh;
+    }
+
+
+
+
+    .maintitle_box {
+        width: 40%;
+    }
+
+
+
+    .sub_r_textbox p {
+        font-size: 1.0rem;
+    }
+
+
+
+
+    .art_textbox h6:nth-child(2) {
+        font-size: 1.3rem;
+    }
+
+
+
+    .adress_box h1 {
+        font-size: 2.7rem;
+    }
+
+
+    .foot_lbox small {
+        font-size: 0.7rem;
+    }
+}
+
+
+
+
+
+/* モバイルサイズ */
+@media screen and (max-width: 426px) {
+
+
+    .loading_text h3 {
+        font-size: 2rem;
+    }
+
+    .loading_text {
+        position: fixed;
+        top: 45%;
+        left: 50%;
+        transform: translate(-40%,-50%);
+        width: 25ch;
+        animation: typing 2s steps(12), effect .5s step-end infinite alternate;
+    }
+     
+    @keyframes typing {
+      from {
+        width: 0
+      }
+    }
+        
+    @keyframes effect {
+      50% {
+        border-color: transparent
+      }
+    }
+
+    /* メインビジュアル */
+
+    .main-visual {
+        height: 110vh;
+    }
+
+    .rightover_imgbox {
+        top: 10%;
+    }
+
+    .main-visual h1 {
+        font-size: 6.0rem;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 35%;
+    }
+
+    .main-visual_subsentencebox h2 {
+        font-size: 2.0rem;
+        margin-top: 1%;
+    }
+
+
+    .main-visual_imgbox {
+        width: 90%;
+        height: 25%;
+        margin: 7% auto 5%;
+    }
+
+    .main-visual h6 {
+        bottom: -15vh;
+    }
+
+
+
+    /* 各セクション共通 */
+
+    .maintitle_box {
+        width: 50%;
+    }
+
+    .maintitle_box h1 {
+        font-size: 3.0rem;
+    }
+
+    .subtitle_box h3 {
+        font-size: 1.0rem;
+    }
+
+    .sectiontitle_box {
+        height: 7.5vh;
+    }
+
+
+    /* About */
+    
+    .about_section {
+        height: 140vh;
+    }
+
+
+
+
+
+    .sub_l_imgbox {
+        width: 90%;
+        height: 100%;
+    }
+
+    .rightunder_imgbox {
+        top: -380%;
+    }
+
+    .sub_r_textbox h5 {
+        margin-top: 5%;
+        font-size: 1.2rem;
+    }
+
+    .sub_r_rinkbox h5 {
+        font-size: 1.0rem;
+    }
+
+
+    .sub_r_textbox {
+        height: 40%;
+    }
+
+    .sub_r_rinkbox {
+        height: 17%;
+    }
+
+
+
+
+
+    /* skills */
+
+    .skills_section {
+        height: 115vh;
+        padding-top: 10vh;
+    }
+
+
+    .skill_mainbox {
+        height: 40vh;
+        margin: 10% auto 0;
+    }
+
+    .skill_mainbox:nth-of-type(3) {
+        margin-top: 0;
+    }
+
+    .skill_textoverbox {
+        height: 25%;
+    }
+
+    .skill_textoverbox h6 {
+        width: 10%;
+    }
+
+    .skill_textoverbox h2 {
+        font-size: 2.5rem;
+    }
+
+    .Text-Span:after {
+        bottom: 10px;
+    }
+
+
+
+    .skill_textunder_sub_lbox {
+        width: 25%;
+    }
+
+
+
+
+
+
+    /* works */
+
+    .work_section {
+        padding-top: 10vh;
+        height: 220vh;
+    }
+
+    .works_box {
+        margin: 5vh auto 0;
+    }
+
+    .works_box a {
+        width: 100%;
+        height: 45vh;
+    }
+
+
+
+
+    /* フッター */
+
+    .adress_box h1 {
+        font-size: 2.3rem;
+    }
+
+    @keyframes height1 {
+        0%{
+            height: 5vh;
+        }
+    
+        100%{
+            height: 15vh;
+        }
+    }
+
+    .contact_box {
+        height: 50%;
+    }
+
+    .adress_box {
+        height: 50%;
+    }
+
+
+    .foot_lbox {
+        width: 75%;
+    }
+
+    .foot_rbox {
+        width: 25%;
+    }
+
+    .foot_lbox small {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+@media screen and (max-width: 376px) {
+
+
+    .main-visual {
+        height: 103vh;
+    }
+
+
+    .main-visual h1 {
+        font-size: 5.0rem;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 38%;
+    }
+
+    .main-visual_subsentencebox h2 {
+        font-size: 1.8rem;
+    }
+
+
+
+    .rightunder_imgbox {
+        top: -370%;
+    }
+
+    .work_section {
+        height: 200vh;
+    }
+
+    .works_box a {
+        height: 40vh;
+    }
+
+
+    .adress_box h1 {
+        font-size: 2.0rem;
+    }
+
+
+
+}
+
+
+@media screen and (max-width: 326px) {
+
+
+    .main-visual {
+        height: 100vh;
+    }
+
+
+    .main-visual h1 {
+        font-size: 4.0rem;
+    }
+
+    .main-visual h1:nth-of-type(1) {
+        padding-top: 40%;
+    }
+
+    .main-visual_subsentencebox h2 {
+        font-size: 1.6rem;
+    }
+
+
+
+    .rightunder_imgbox {
+        top: -360%;
+    }
+
+    .work_section {
+        height: 175vh;
+    }
+
+    .works_box a {
+        height: 35vh;
+    }
+
+
+    .adress_box h1 {
+        font-size: 1.7rem;
+    }
+
+
+    .foot_lbox small {
+        font-size: 0.8rem;
+    }
+
+}

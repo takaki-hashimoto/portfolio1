@@ -1,0 +1,1163 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: bottom;
+}
+
+/* 共通パーツ */
+html {
+    scroll-behavior: smooth;
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Zen Old Mincho', serif;
+    /* font-family: serif; */
+    line-height: 1.5;
+    letter-spacing: 0.1em;
+    /* font-family: 'yu mincho'; */
+}
+
+p {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+h4 {
+    font-size: 3rem;
+}
+
+h5 {
+    font-size: 2.5rem;
+}
+
+h6 {
+    font-size: 1.6rem;
+}
+
+
+
+/* ローディング */
+
+.loading {
+    width: 100%;
+    height: 100vh;
+    transition: all 2s;
+    background: black;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* 切り込み＆開閉エフェクト */
+
+.load_line {
+    width: 0%;
+    height: 1px;
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    z-index: 50;
+}
+
+.up {
+    width: 100%;
+    height: 50%;
+    background-color: #000;
+    position: fixed;
+    z-index: 49;
+}
+
+.down {
+    width: 100%;
+    height: 50%;
+    background-color: #000;
+    position: fixed;
+    bottom: 0;
+    z-index: 49;
+}
+
+
+
+/* ナビゲーション */
+
+nav {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh;
+    /* background-color: #666; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    /* 時間の指定 */
+    animation-duration: 2.5s;
+    /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-top;
+}
+
+/* animation-timing-function について
+    ※ 初期値は ease：最初と最後をゆっくり
+       その他   ease-in-out : 最初と最後をかなりゆっくり
+                ease-in：最初をゆっくり
+                ease-out：最後をゆっくり
+                linear：一定                             */
+
+
+@keyframes fadein-top {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    /* 90%{
+        opacity: 0;
+        transform: translateY(-30px);
+    } */
+
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header-l-box {
+    width: 5%;
+    height: 90%;
+    /* background-image: url(./top_img/hidariue4.png);
+    background-size: contain;
+    background-repeat: no-repeat; */
+    margin-left: 4%;
+}
+
+.header-l-box a {
+    display: flex;
+    align-items: center;
+}
+
+.header-l-box img {
+    width: 90%;
+}
+
+.header-r-box {
+    /* width: auto; */
+    width: 95%;
+    height: 80%;
+    /* background-color: #fff; */
+    margin-right: 1%;
+}
+
+
+nav ul {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    list-style-type: none;
+    padding-right: 5%;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    z-index: 6;
+}
+
+nav ul li a::after {
+    position: absolute;
+    left: -10%;
+    bottom: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #000000;
+    transform: scale(0, 1);
+    /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+    transform-origin: left top;
+    /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+    transition: transform 0.5s;
+    /*変形の時間*/
+}
+
+a:hover::after {
+    transform: scale(1.2, 1.5);
+    /*ホバー後、x軸方向に1.2（相対値）伸長 & y軸も同じイメージで伸長*/
+}
+
+nav ul li a h6 {
+    font-weight: bold;
+    font-family: 'freight-big-pro', serif;
+}
+
+
+
+
+
+
+/* main */
+
+/* firstsection */
+
+section {
+    width: 100%;
+    height: 100vh;
+}
+
+.profile_firstsection {
+    width: 100%;
+    height: 140vh;
+    /* background-color: #00000066; */
+}
+
+
+
+
+.main-visual_box {
+    width: 100%;
+    height: 90vh;
+    /* background-color: orange; */
+    position: relative;
+}
+
+.main-visual_imgbox {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    /* background-color: aquamarine; */
+    padding-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img1_justbox {
+    width: 70%;
+    height: 60%;
+    position: relative;
+    opacity: 0;
+}
+
+.main-visual_imgbox .img1 {
+    width: 100%;
+    height: 100%;
+    transform: skewY(10deg);
+    box-shadow: 30px 80px 25px -50px rgba(0, 0, 0, 0.5);
+}
+
+.img2_justbox {
+    position: absolute;
+    top: -2%;
+    right: -10%;
+    width: 20%;
+    height: 30%;
+    opacity: 0;
+}
+
+
+.fadein_b0 {
+    /* 時間の指定 */
+    animation-duration: 2s;
+    /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-bottom0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom0 {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.main-visual_imgbox .img2 {
+    width: 100%;
+    height: 100%;
+    animation-duration: 15s;
+    /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: infinite;
+    /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: kaiten2;
+}
+
+@keyframes kaiten2 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+
+
+
+
+
+/* テキストループ */
+
+.textloop_box {
+    overflow: hidden;
+    position: absolute;
+    top: 35%;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.loop {
+    animation: loop 50s linear infinite;
+    width: 100%;
+    font-family: serif;
+    font-size: 16.5rem;
+    color: rgba(0, 0, 0, .0);
+    -webkit-text-stroke: 1px #000000;
+    text-align: center;
+}
+
+.loop2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loop 50s -25s linear infinite;
+    font-family: serif;
+    font-size: 16.5rem;
+    color: rgba(0, 0, 0, .0);
+    -webkit-text-stroke: 1px #000000;
+    text-align: center;
+}
+
+@keyframes loop {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.main-visual_underbox {
+    width: 100%;
+    height: 50vh;
+}
+
+.main_textbox {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+
+    /* background-color: blue; */
+}
+
+.main_textbox h5 {
+    font-weight: normal;
+}
+
+.main_textbox h6 {
+    text-align: justify;
+    line-height: 2em;
+    padding-top: 5vh;
+    font-weight: normal;
+}
+
+
+
+
+
+/* secondsection */
+
+.eachTextAnime span {
+    opacity: 0;
+}
+
+.eachTextAnime.appeartext span {
+    animation: text_anime_on 1s ease-out forwards;
+}
+
+@keyframes text_anime_on {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.profile_secondsection {
+    width: 100%;
+    height: 100vh;
+    /* background-color: #000; */
+}
+
+/* 
+.section_inner {
+    width: 80%;
+    width: 100%;
+    height: 100%;
+    padding-top: 10vh;
+    padding-left: 10%;
+    margin: 0 auto;
+    background-color: #9f6666;
+    opacity: 0.5;
+} */
+
+/* 
+.sectiontitle_box {
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+
+    border-bottom: 1px solid #000;
+}
+
+.maintitle_box {
+    width: 30%;
+    height: 100%;
+}
+
+.maintitle_box h1 {
+    font-size: 7rem;
+    font-weight: normal;
+    margin-top: -50px;
+    padding-top: 50px;
+    color: #fff;
+}
+
+.subtitle_box {
+    width: 80%;
+    height: 100%;
+}
+
+.subtitle_box h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-left: 1%;
+    color: #b2b2b2;
+} */
+
+/* -----------------上記保留-------------------- */
+
+
+.area {
+    overflow: hidden;
+    background-color: #000000e0;
+}
+
+.wrap {
+    display: flex;
+    position: relative;
+}
+
+
+.wrap_titlebox {
+    position: absolute;
+    display: flex;
+    align-items: first baseline;
+    width: 50%;
+    top: 15vh;
+    left: 7.5%;
+    z-index: 1;
+}
+
+.wrap_endtitlebox {
+    position: absolute;
+    width: 40%;
+    height: 50vh;
+    bottom: -45.5%;
+    /* left: 12%; */
+    right: 47%;
+    z-index: 1;
+}
+
+.wrap_endtitlebox h1{
+    font-size: 22rem;
+    font-family:serif;
+    font-weight: bold;
+    color:rgba(0,0,0,.0);
+    color: #000;
+    text-align:center;
+   /* -webkit-text-stroke: 1px #4a4a4a; */
+}
+
+.wrap_titlebox h1 {
+    font-size: 8rem;
+    font-weight: normal;
+    margin-top: -50px;
+    padding-top: 50px;
+    color: #fff;
+}
+
+.wrap_titlebox h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-left: 1%;
+    color: #acacac;
+}
+
+
+
+/* .wrap_line {
+    width: 100%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+    top: 60%;
+    left: 0%;
+    z-index: 2;
+} */
+
+
+
+.item {
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold; */
+    /* color: #fff; */
+}
+
+
+/*  
+.item:nth-of-type(1) {
+    background-color: #e94d15;
+}
+
+.item:nth-of-type(2) {
+    background-color: #f18d1d;
+} 
+
+.item:nth-of-type(3) {
+    background-color: #f8b633;
+}
+
+.item:nth-of-type(4) {
+    background-color: #8cc561;
+}
+
+.item:nth-of-type(5) {
+    background-color: #56aa59;
+} */
+
+
+
+.prof_box {
+    display: flex;
+    align-items: flex-end;
+}
+
+.prof_bigtextbox1 {
+    width: 85%;
+    height: 60%;
+    /* background-color: rgba(0, 0, 0, 0.093); */
+    margin-left: 15%;
+    display: flex;
+}
+
+.prof_bigtextbox2 {
+    width: 85%;
+    height: 60%;
+    /* background-color: rgba(0, 0, 0, 0.093); */
+    margin-right: 15%;
+    display: flex;
+}
+
+.prof_textbox {
+    width: 100%;
+    height:100%;
+    color: #fff;
+    /* background-color: red; */
+    /* border: 1px solid black; */
+    text-align: justify;
+    position: relative;
+}
+
+
+.fadein_n6 {
+    /* 時間の指定 */
+    animation-duration: 1.0s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal5;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal5 {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+
+}
+
+.fadein_n7 {
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-normal5;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal5 {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+
+}
+
+.fadein_n8 {
+    animation-duration: 2.0s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-normal5;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal5 {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+
+}
+
+.fadein_n9 {
+    animation-duration: 2.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-normal5;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal5 {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+
+}
+
+
+
+
+
+
+.overtext1 {
+    padding: 3% 0;
+    font-weight: normal;
+    font-style: oblique;
+}
+
+.overtext2 {
+    font-size: 1.6rem;
+    font-weight: normal;
+}
+
+
+.undertext {
+    padding-top: 35%;
+    padding-right: 25%;
+    font-weight: normal;
+    line-height: 2em;
+}
+
+.prof_line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    top: 33%;
+    left: 0;
+}
+
+
+.prof_longline {
+    width: 140%;
+}
+
+
+.prof_dots {
+    position: absolute;
+    width: 3%;
+    height: 3%;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 31.5%;
+    left: -1%;
+}
+
+
+.prof_yohakubox {
+    width: 100%;
+    height: 30vh;
+    background-color: #00000000;
+    position: relative;
+    z-index: 0;
+    /* border-bottom: 3px solid red; */
+}
+
+
+.profile_backsecondsection {
+    width: 100%;
+    height: 160vh;
+    /* border-bottom: 3px solid yellow */
+}
+
+
+
+
+/* section 私の強みの部分 */
+
+
+
+.profile_thirdsection {
+    width: 100%;
+    height: 250vh;
+    padding-top: 25vh;
+
+    /* background-color: pink; */
+}
+
+.section_inner {
+    width: 70%;
+    height: 225vh;
+    margin: 0 auto;
+
+    /* padding-top: 25vh; */
+    /* background-color: palevioletred; */
+}
+
+.sectiontitle_box {
+    display: flex;
+    align-items: first baseline;
+    width: 50%;
+}
+
+.sectiontitle_box h1 {
+    font-size: 8rem;
+    font-weight: normal;
+    margin-top: -50px;
+    padding-top: 50px;
+}
+
+.sectiontitle_box h3 {
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-left: 4%;
+}
+
+
+.strength_circlebox {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+
+    /* background-color: yellow;     */
+}
+
+
+.circlebox {
+    width: 100%;
+    height: 100%;
+
+    /* border: 1px solid #000; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.shape,
+.shape2,
+.shape3 {
+    width: 320px;
+    height: 320px;
+    background-image: conic-gradient(#000 0deg, #fff 0deg);
+    clip-path: circle();
+    /* display: grid; */
+    /* place-items: center; */
+
+    position: relative;
+}
+
+.shape::before,
+.shape2::before,
+.shape3::before {
+    content: "";
+    width: 99.5%;
+    height: 99.5%;
+    /* background-color: white; */
+    clip-path: circle();
+
+}
+
+.shape h5,
+.shape2 h5,
+.shape3 h5 {
+    position: absolute;
+    z-index: 1;
+    color: white;
+    font-weight: normal;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+.fadein_b {
+    animation-duration: 2.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-bottom;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom {
+    0%{
+        opacity: 0;
+        transform: translate(-50%,50%);
+    }
+
+    50%{opacity: 0;
+        transform: translate(-50%,50%);
+    }
+
+
+    100%{
+        opacity: 1;
+        transform: translateY(-50%,-50%);
+    }
+}
+
+.fadein_b2 {
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-bottom;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom {
+    0%{
+        opacity: 0;
+        transform: translate(-50%,50%);
+    }
+
+    20%{opacity: 0;
+        transform: translate(-50%,50%);
+    }
+
+
+    100%{
+        opacity: 1;
+        transform: translateY(-50%,-50%);
+    }
+}
+
+.fadein_b3 {
+    animation-duration: 2.4s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: fadein-bottom;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-bottom {
+    0%{
+        opacity: 0;
+        transform: translate(-50%,50%);
+    }
+
+    50%{opacity: 0;
+        transform: translate(-50%,50%);
+    }
+
+
+    100%{
+        opacity: 1;
+        transform: translateY(-50%,-50%);
+    }
+}
+
+
+
+
+.strength_numberbox {
+    width: 100%;
+    height: 2%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 1%;
+    position: relative;
+
+    /* background-color: purple; */
+}
+
+.strength_numberbox h6 {
+    font-weight: normal;
+}
+
+/* .Text-Span {
+    position: relative;
+    z-index: 1;
+} */
+
+.Text-Span:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1%;
+    width: 0%;
+    height: 1px;
+    /* background: #5bc8ac; */
+    background: #000;
+    /* z-index: -1; */
+    transition: all 2.0s;
+}
+
+.Text-Span.line_lr2:after {
+    width: 100%;
+  }
+
+
+.strength_textbox {
+    width: 100%;
+    height: 33vh;
+    display: flex;
+
+    /* background-color: green; */
+}
+
+.strength_l_textbox{
+    width: 40%;
+    
+    /* border: 1px solid #000; */
+}
+
+.strength_r_textbox {
+    width: 60%;
+
+    /* border: 1px solid #000; */
+}
+
+.strength_l_textbox h1 {
+    /* font-size: 8rem; */
+    font-size: 4rem;
+    font-family: serif;
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+
+.strength_r_textbox {
+    text-align: justify;
+}
+
+.strength_r_textbox h6 {
+    font-weight: normal;
+    font-size: 1.6rem;
+    letter-spacing: 0;
+    line-height: 2em;
+    padding-top: 2%;
+}
+
+/* 
+.strength_l_textbox h1,
+.strength_r_textbox h6 {
+    opacity: 0;
+} */
+
+
+
+.fadein_n4 {
+    /* 時間の指定 */
+    animation-duration: 1.5s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal4;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal4 {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.fadein_n5 {
+    /* 時間の指定 */
+    animation-duration: 1.5s;  /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: 1; /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: fadein-normal5;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadein-normal5 {
+    0%{
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+/* フッター */
+
+footer {
+    width: 100%;
+    height: 7vh;
+}
+
+.footbox {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    border-top: 1px solid #000;
+    align-items: center;
+}
+
+.foot_lbox,
+.foot_rbox {
+    width: 100%;
+    /* height: 100%; */
+}
+
+.foot_lbox small {
+    font-size: 1.0rem;
+}
+
+.foot_rbox {
+    text-align: right;
+}
+
+.foot_rbox a {
+    color: #000;
+    text-decoration: none;
+}
+
+.foot_rbox h6 {
+    font-weight: normal;
+    font-size: 1.2rem;
+}
+
+
+
+
+
+
+
+
+
+/* .yohaku {
+    width: 100%;
+    height: 200vh;
+    background-color: #00000022;
+} */

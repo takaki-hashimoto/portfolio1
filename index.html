@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポートフォリオ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <div class="loading" id="loading"></div>
+
+    <div class="up"></div>
+    <div class="down"></div>
+    <div class="load_line"></div>
+    <div class="loading_text" id="loading_text">
+        <h3>NowLoading ...</h3>
+    </div>
+
+    <header id="header">
+
+        <div class="openbtn" id="target">
+            <span><h6>menu</h6></span>
+            <span><h6>close</h6></span>
+        </div>
+
+        <nav class="header-nav">
+            <div class="header-l-box"><a href="#header"><img src="./top_img/hidariue4.png" alt=""></a></div>
+            <div class="header-r-box nav_listbox" id="nav_target">
+                <!-- <ul class="color_change"> -->
+                <ul id="g-nav">
+                    <li><a href="#about"><h6>About</h6></a></li>
+                    <li><a href="#skills"><h6>Skills</h6></a></li>
+                    <li><a href="#works"><h6>Works</h6></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-visual">
+            <h1 class="eachTextAnime">Welcome to</h1>
+            <div class="main-visual_subsentencebox">
+                <h2>Engineer's Egg</h2>
+                <div class="subsentence_line"></div>
+                <div class="subsentence_back"></div>
+            </div>
+            <div class="main-visual_imgbox">
+                <img src="./top_img/main1.png" alt="">
+            </div>
+            <h1 class="eachTextAnime">Portfolio</h1>
+            <h6>(Scroll down)</h6>
+            <div class="rightover_imgbox">
+                <img src="./top_img/main_logo2.png" alt="">
+            </div>
+        </div>
+
+    </header>
+
+    <main>
+        <section class="about_section">
+            <div class="section_inner">
+                <div class="sectiontitle_box">
+                    <div class="maintitle_box"><h1 class="eachTextAnime" id="about">About</h1></div>
+                    <div class="subtitle_box"><h3>私について</h3></div>
+                </div>
+                <div class="about_mainbox">
+                    <div class="about_sub_lbox">
+                        <div class="sub_l_imgbox">
+                            <img class="normal2" src="./main_img/prof1.jpg" alt="">    
+                        </div>
+                    </div>
+                    <div class="about_sub_rbox">
+                        <div class="sub_r_textbox">
+                            <h5 class="normal3">橋本 卓樹 - Takaki Hashimoto</h5>
+                            <p class="normal3">1994年1月、北海道出身。国立大学卒業後、「人の役に立つ仕事がしたい」という思いから
+                                高等学校数学科教諭として、約6年間の教育活動に従事。その後2年間、学習塾の教育プランナー
+                                としても活動。2023年8月、北関東学院へ入学し、WEBフロントエンドについて学ぶ。</p>
+                        </div>
+                        <div class="sub_r_rinkbox">
+                            <a class="normal3" href="./profile/prof.html"><h5 class="normal3">View Profile ➙</h5></a>
+                            <div class="rightunder_imgbox"><img src="./main_img/profile_logo.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="skills_section">
+            <div class="section_inner skill_sectioninner">
+                <div class="sectiontitle_box">
+                    <div class="maintitle_box"><h1 class="eachTextAnime" id="skills">Skills</h1></div>
+                    <div class="subtitle_box"><h3>できること</h3></div>
+                </div>
+                <div class="skill_mainbox">
+                    <div class="skill_textbigbox">
+                        <div class="skill_textoverbox normal5">
+                            <h6>(01)</h6>
+                            <h2>Web Development</h2>
+                            <span class="Text-Span JS_AddLine"></span>
+                            <!-- <div class="skill_textline"></div> -->
+                        </div>
+                        <div class="skill_textunderbox">
+                            <div class="skill_textunderinnerbox normal5">
+                                <h6>HTMLやCSSを使用し、Webサイトを構築できます。
+                                    またJavascriptを使用することで、サイトに動きを加えることも可能です。
+                                    見る側にとって視覚的効果のある演出を施すことで、
+                                    Webサイトとしての魅力をより一層引き出せるような実装を心がけています。
+                                </h6>
+                                    <div class="skill_textunder_subbox normal4">
+                                        <div class="skill_textunder_sub_lbox">
+                                            <h6>Tools: </h6>
+                                        </div>
+                                        <div class="skill_textunder_sub_rbox">
+                                            <h6>HTML / CSS / Javascript</h6>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill_mainbox">
+                    <div class="skill_textbigbox">
+                        <div class="skill_textoverbox normal4">
+                            <h6>(02)</h6>
+                            <h2>Logical Thinking</h2>
+                            <span class="Text-Span JS_AddLine"></span>
+                            <div class="skill_textline"></div>
+                        </div>
+                        <div class="skill_textunderbox">
+                            <div class="skill_textunderinnerbox normal5">
+                                <h6>物事を順序立てて考え、考察することができます。
+                                    困難な状況に直面した場合でも冷静に現状を整理し、
+                                    網羅的に原因を洗い出すことで根拠を持って原因を追求することができます。
+                                    また、前職の経験から相手に合わせた言葉選びを行うことで、
+                                    建設的な相手に伝わりやすい会話・説明が可能です。
+                                </h6>
+                                    <div class="skill_textunder_subbox normal4">
+                                        <div class="skill_textunder_sub_lbox">
+                                            <h6>Licences: </h6>
+                                        </div>
+                                        <div class="skill_textunder_sub_rbox">
+                                            <h6>高等学校教諭一種免許状(数学)</h6>
+                                            <h6>中学校教諭一種免許状(数学) </h6>
+                                            <h6>小学校教諭一種免許状</h6>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="work_section">
+            <div class="section_inner">
+                <div class="sectiontitle_box">
+                    <div class="maintitle_box"><h1 class="eachTextAnime" id="works">Works</h1></div>
+                    <div class="subtitle_box"><h3>制作物</h3></div>
+                </div>
+                <div class="works_box">
+                    <a href="https://takaki-hashimoto.github.io/zikosyoukai/">
+                        <div class="works_artbox bottom2">
+                            <div class="art_imgbox">
+                                <img src="./main_img/works1.png" alt="">
+                            </div>
+                            <div class="art_textbox">
+                                <h6>Website</h6>
+                                <h6>Self Introduction</h6>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://takaki-hashimoto.github.io/-HP-/">
+                        <div class="works_artbox bottom2_2">
+                            <div class="art_imgbox">
+                                <img src="./main_img/works2.png" alt="">
+                            </div>
+                            <div class="art_textbox">
+                                <h6>Website</h6>
+                                <h6>Kitakanto Gakuin Remake</h6>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://takaki-hashimoto.github.io/suizokukan2/">
+                        <div class="works_artbox bottom2_3">
+                            <div class="art_imgbox">
+                                <img src="./main_img/works3.png" alt="">
+                            </div>
+                            <div class="art_textbox">
+                                <h6>Website</h6>
+                                <h6>Kitakanto Aquarium</h6>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="./index.html">
+                        <div class="works_artbox bottom2 bottom2_2">
+                            <div class="art_imgbox">
+                                <img src="./main_img/works4.png" alt="">
+                            </div>
+                            <div class="art_textbox">
+                                <h6>Website</h6>
+                                <h6>Takaki Hashimoto Portfolio</h6>
+                            </div>
+                        </div>
+                    </a>
+
+
+
+
+
+
+                    <!-- <div class="works_artbox">
+                        <div class="art_imgbox">
+                            
+                        </div>
+                        <div class="art_textbox"></div>
+                    </div>
+                    <div class="works_artbox">
+                        <div class="art_imgbox"></div>
+                        <div class="art_textbox"></div>
+                    </div>
+                    <div class="works_artbox">
+                        <div class="art_imgbox"></div>
+                        <div class="art_textbox"></div>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- <h6 class="yohaku" data-midnight="dark"></h6>
+        <h1 class="eachTextAnime">Portfolio</h1>
+        <h6 class="yohaku" data-midnight="dark"></h6> -->
+
+
+        <section class="mail_section heightup">
+            <div class="mail_box">
+                <div class="contact_box">
+                    <h6>Contact</h6>
+                </div>
+                <div class="adress_box">
+                    <a href="mailto:ht.webfront2.6126@gmail.com"><h1 class="mailadress">ht.webfront2.6126@gmail.com</h1></a>
+                </div>
+            </div>
+        </section>
+        
+
+
+
+
+
+
+    </main>
+
+
+    
+
+
+
+
+
+    
+
+
+    <footer>
+        <div class="footbox">
+            <div class="foot_lbox">
+                <small>All Rights Reserved 2023 ©︎ Takaki Hashimoto</small>
+            </div>
+            <div class="foot_rbox">
+                <a href="#header"><h6>(Back to top)</h6></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- <div class="otameshidai">
+        <div class="otameshisyou">
+            <svg width=400 height=400>
+                <circle
+                        cx=200
+                        cy=200
+                        r=100
+                        fill="none"
+                        stroke="red"
+                        stroke-width=20
+                        style="stroke-dasharray: 0 628;
+                               animation: drawCircle 2s forwads"
+                        />
+            </svg>
+        </div>
+    </div> -->
+
+    <!-- <script src="./midnight.js-gh-pages/midnight.jquery.min.js"></script> -->
+    <script src="./main.js"></script>
+    <script>
+        $(".load_line").animate({"width":"100%"},2000,function(){
+            $(".load_line").css("right",0);
+            $(".load_line").animate({"width":"0%"},1000,function(){
+                $(".up").animate({"height":"0%"});
+                $(".down").animate({"height":"0%"});
+            });
+        })
+
+        $(".subsentence_line").delay(3000).animate({"width":"22%",},1000,"linear")
+
+        $(".subsentence_back").delay(4000).animate({"width":"37%"},1500)
+
+        $('#target').click(()=>{
+            $('#target').toggleClass('active');
+            $('#nav_target').toggleClass('nav_active')
+        })
+
+        $("#g-nav a").click(()=>{
+            $('#nav_target').removeClass('nav_active');
+            $('#target').removeClass('active');
+        })
+
+        // $(function(){
+        //     $(".color_change").midnight();
+        // });
+
+    </script>
+</body>
+</html>
