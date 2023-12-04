@@ -703,7 +703,7 @@ section {
     transform: scale(1.2, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
     transform-origin: right top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の右端*/
     transition: transform 0.5s; /*変形の時間*/
-    z-index: 1;
+    z-index: -1;
     }
     
     a:hover::after {
