@@ -1102,6 +1102,7 @@ section {
 .art_imgbox {
     width: 100%;
     height: 70%;
+    border: 1px solid #acacac;
     overflow: hidden;
 }
 
