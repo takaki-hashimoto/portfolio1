@@ -208,6 +208,19 @@ $(function() {
 });
 
 
+$(function() {
+  $(window).scroll(function() {
+      $(".bottom2_4").each(function() {
+      let scroll = $(window).scrollTop();
+      let blockPosition = $(this).offset().top;
+      let windowHeihgt = $(window).height();
+      if (scroll > blockPosition - windowHeihgt + 120) {
+          $(this).addClass("fadein_b2_4");
+      }
+      });
+  });
+});
+
 
 
 
