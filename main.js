@@ -81,6 +81,40 @@ $(window).on('load', function () {
 
 
 
+
+// ナビゲーションの出る・消える(ハンバーガー(768以下)のときはなし)
+
+let offset = 0;
+let lastPosition = 0;
+let ticking = false;
+const header = document.getElementById('move_mav');
+const height = 100;
+
+const onScroll = () => {
+if ($(window).width() > 768) {
+  if (lastPosition > height) {
+    if (lastPosition > offset) {
+      header.classList.add('head-animation');
+    } else {
+      header.classList.remove('head-animation');
+    }
+    offset = lastPosition;
+  }
+}};
+
+document.addEventListener('scroll', () => {
+  lastPosition = window.scrollY;
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      onScroll();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+
+
 //pofile画像のフェードイン
 
 $(function() {
@@ -208,6 +242,8 @@ $(function() {
 });
 
 
+
+// 追記
 $(function() {
   $(window).scroll(function() {
       $(".bottom2_4").each(function() {
@@ -273,6 +309,12 @@ $(window).on('scroll',function(){
     });
     
 });
+
+
+
+
+
+
 
       
       
