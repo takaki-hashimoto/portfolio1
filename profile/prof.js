@@ -31,6 +31,39 @@ $(window).on('load', function (){
 });
 
 
+// ナビゲーションの出る・消える(ハンバーガー(768以下)のときはなし)
+
+let offset = 0;
+let lastPosition = 0;
+let ticking = false;
+const header = document.getElementById('move_mav');
+const height = 100;
+
+const onScroll = () => {
+if ($(window).width() > 768) {
+  if (lastPosition > height) {
+    if (lastPosition > offset) {
+      header.classList.add('head-animation');
+    } else {
+      header.classList.remove('head-animation');
+    }
+    offset = lastPosition;
+  }
+}};
+
+document.addEventListener('scroll', () => {
+  lastPosition = window.scrollY;
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      onScroll();
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+
+
 
 
 // 文字を順番に表示
@@ -125,6 +158,75 @@ window.addEventListener("load", function(){
     
     
 });
+
+window.addEventListener("load", function(){
+
+    gsap.registerPlugin(ScrollTrigger);
+  
+    const area  = document.querySelector(".js-area2");
+    const wrap  = document.querySelector(".js-wrap2");
+    const items = document.querySelectorAll(".js-item2");
+    const num   = items.length;
+  
+    gsap.set(wrap,  { width: num * 100 + "%" });
+    gsap.set(items, { width: 100 / num + "%" });
+  
+  
+    //ここから追加
+    gsap.to(items, {
+      xPercent: -100 * ( num - 1 ),
+      ease: "none",
+      scrollTrigger: {
+        trigger: area, 
+        start: "top top", 
+        end: "bottom top", 
+        pin: true, 
+        scrub: true, 
+      }
+    });
+    //ここまで追加
+    
+    
+});
+
+
+
+
+
+// 縦スクロールの線
+//線が伸びるための設定を関数でまとめる
+function ScrollTimelineAnime(){
+    $('.timeline li').each(function(){// それぞれのli要素の
+      let elemPos = $(this).offset().top;// 上からの高さ取得
+      let scroll = $(window).scrollTop();// スクロール値取得
+      let windowHeight = $(window).height();// windowの高さ取得
+      let startPoint = 300; //線をスタートさせる位置を指定
+      if (scroll >= elemPos - windowHeight-startPoint){       
+        let H = $(this).outerHeight(true)//liの余白と高さを含めた数値を取得
+        //スクロール値から要素までの高さを引いた値を、liの高さの半分のパーセントで出す
+        var percent = (scroll+startPoint - elemPos) / (H/2) *100;//liの余白と高さの半分で線を100％に伸ばす
+  
+        // 100% を超えたらずっと100%を入れ続ける
+        if(percent  > 100){
+          percent  = 100;
+        }
+        // ボーダーの長さをセット
+        $(this).children('.border-line').css({
+          height: percent + "%", //CSSでパーセント指定
+        });
+      } 
+    });
+  }
+  
+  // 画面をスクロールをしたら動かしたい場合の記述
+  $(window).on('scroll', function(){
+    ScrollTimelineAnime();// 線が伸びる関数を呼ぶ
+  });
+  
+  // ページが読み込まれたらすぐに動かしたい場合の記述
+  $(window).on('load', function(){
+    ScrollTimelineAnime();// 線が伸びる関数を呼ぶ
+  });
 
 
 
