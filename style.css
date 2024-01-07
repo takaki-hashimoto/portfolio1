@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -8,7 +8,7 @@
 }
 
 /* 共通パーツ */
-html{
+html {
     scroll-behavior: smooth;
     font-size: 10px;
 }
@@ -103,7 +103,7 @@ h6 {
     position: fixed;
     top: 45%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     color: #fff;
     z-index: 51;
     width: 42ch;
@@ -112,17 +112,17 @@ h6 {
     overflow: hidden;
     border-right: 3px solid;
 }
- 
+
 @keyframes typing {
-  from {
-    width: 0
-  }
+    from {
+        width: 0
+    }
 }
-    
+
 @keyframes effect {
-  50% {
-    border-color: transparent
-  }
+    50% {
+        border-color: transparent
+    }
 }
 
 
@@ -140,12 +140,16 @@ nav {
     justify-content: space-between;
     align-items: center;
     z-index: 5;
+    transition: all .5s;
     /* 時間の指定 */
-    animation-duration: 4.5s;  /* duration : 間隔 */
+    animation-duration: 4.5s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-top;
 }
@@ -159,26 +163,27 @@ nav {
 
 
 @keyframes fadein-top {
-    0%{
+    0% {
         opacity: 0;
-        transform: translateY(-30px);
+        /* transform: translateY(-30px); */
     }
 
-    90%{
+    90% {
         opacity: 0;
-        transform: translateY(-30px);
+        /* transform: translateY(-30px); */
     }
 
 
 
-    100%{
+    100% {
         opacity: 1;
-        transform: translateY(0);
+        /* transform: translateY(0); */
     }
 }
 
 .header-l-box {
     width: 5%;
+    min-width: 65px;
     height: 90%;
     /* background-image: url(./top_img/hidariue4.png);
     background-size: contain;
@@ -231,18 +236,28 @@ nav ul li a::after {
     width: 100%;
     height: 1px;
     background: #000000;
-    transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
-    transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
-    transition: transform 0.5s; /*変形の時間*/
+    transform: scale(0, 1);
+    /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+    transform-origin: left top;
+    /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+    transition: transform 0.5s;
+    /*変形の時間*/
 }
-    
+
 nav ul li a:hover::after {
-transform: scale(1.2, 1.5);     /*ホバー後、x軸方向に1.2（相対値）伸長 & y軸も同じイメージで伸長*/
+    transform: scale(1.2, 1.5);
+    /*ホバー後、x軸方向に1.2（相対値）伸長 & y軸も同じイメージで伸長*/
 }
 
 nav ul li a h6 {
     font-weight: bold;
     font-family: 'freight-big-pro', serif;
+}
+
+
+.head-animation {
+    transform: translateY(-100%);
+    transition: all .5s;
 }
 
 
@@ -261,30 +276,33 @@ nav ul li a h6 {
     height: 45vh;
     margin: 2% auto 1%;
     /* 時間の指定 */
-    animation-duration: 8s;  /* duration : 間隔 */
+    animation-duration: 8s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-normal;
 }
 
 @keyframes fadein-normal {
-    0%{
+    0% {
         opacity: 0;
     }
 
-    70%{
+    70% {
         opacity: 0;
     }
 
-    80%{
+    80% {
         opacity: 0.5;
         transform: scale(1.1);
     }
 
-    100%{
+    100% {
         opacity: 1;
     }
 }
@@ -312,11 +330,22 @@ nav ul li a h6 {
     line-height: 0.6;
 }
 
-.eachTextAnime span{opacity: 0;}
-.eachTextAnime.appeartext span{ animation:text_anime_on 1s ease-out forwards; }
+.eachTextAnime span {
+    opacity: 0;
+}
+
+.eachTextAnime.appeartext span {
+    animation: text_anime_on 1s ease-out forwards;
+}
+
 @keyframes text_anime_on {
-  0% {opacity:0;}
-  100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .main-visual_subsentencebox {
@@ -334,27 +363,30 @@ nav ul li a h6 {
     color: #fff;
     z-index: 1;
     /* 時間の指定 */
-    animation-duration: 5.5s;  /* duration : 間隔 */
+    animation-duration: 5.5s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-left;
 }
 
 @keyframes fadein-left {
-    0%{
+    0% {
         opacity: 0;
         transform: translatex(-40px);
     }
 
-    90%{
+    90% {
         opacity: 0;
         transform: translatex(-40px);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translatex(0);
     }
@@ -393,49 +425,52 @@ nav ul li a h6 {
     display: inline-block;
 
     /* 時間の指定 */
-    animation-duration: 5s;  /* duration : 間隔 */
+    animation-duration: 5s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-bottom;
 }
 
 @keyframes fadein-bottom {
-    0%{
+    0% {
         opacity: 0;
         transform: translateY(40px);
     }
 
-    70%{
+    70% {
         opacity: 0.3;
         transform: translateY(40px)
     }
 
-    80%{
+    80% {
         opacity: 0.75;
         transform: translateY(40px);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
 
-.main-visual h6::after{
-    content: ''; 
+.main-visual h6::after {
+    content: '';
     /* width: 2px;  */
     width: 1px;
-    height: 300%; 
-    background-color: #736a6a9e; 
+    height: 300%;
+    background-color: #736a6a9e;
     /* background-color:  #00000022; */
     /* background-color: #000; */
-    position: absolute; 
+    position: absolute;
     bottom: -300%;
-    left: 53%; 
+    left: 53%;
     transform-origin: top;
 
     animation-duration: 1.2s;
@@ -445,11 +480,11 @@ nav ul li a h6 {
 }
 
 @keyframes down {
-    0%{
+    0% {
         transform: scale(1.0, 0);
     }
 
-    100%{
+    100% {
         transform: scale(1.0, 1.0);
     }
 }
@@ -468,21 +503,24 @@ nav ul li a h6 {
 .rightover_imgbox img {
     width: 100%;
     /* 時間の指定 */
-    animation-duration: 20s;  /* duration : 間隔 */
+    animation-duration: 20s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: infinite; /* iteration : 反復 */
+    animation-iteration-count: infinite;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: kaiten;
 }
 
 @keyframes kaiten {
-    0%{
+    0% {
         transform: rotate(0);
     }
 
-    100%{
+    100% {
         transform: rotate(-360deg);
     }
 }
@@ -552,7 +590,7 @@ section {
 }
 
 .maintitle_box {
-    width: 20%;
+    width: 25%;
     height: 100%;
 }
 
@@ -591,6 +629,7 @@ section {
     height: 100%;
 
     /* background-color: blue; */
+    position: relative;
 }
 
 .sub_l_imgbox {
@@ -602,7 +641,7 @@ section {
 .sub_l_imgbox img {
     width: 90%;
     height: 90%;
-    box-shadow: 10px 10px 25px rgba(0,0,0,0.5) ;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
     opacity: 0;
     filter: blur(10px);
     transform: scale(1.2);
@@ -610,29 +649,66 @@ section {
 
 .fadein_n2 {
     /* 時間の指定 */
-    animation-duration: .8s;  /* duration : 間隔 */
+    animation-duration: .8s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-normal2;
     animation-fill-mode: forwards;
 }
 
 @keyframes fadein-normal2 {
-    0%{
+    0% {
         opacity: 0;
         filter: blur(10px);
         transform: scale(1.5);
     }
 
-    100%{
+    100% {
         opacity: 1;
         filter: blur(0);
         transform: scale(1.0);
     }
 }
+
+
+.rightunder_imgbox {
+    position: absolute;
+    bottom: 0%;
+    right: -5%;
+    width: 35%;
+}
+
+.rightunder_imgbox img {
+    width: 100%;
+    /* 時間の指定 */
+    animation-duration: 15s;
+    /* duration : 間隔 */
+    /* アニメーション実行回数の指定 */
+    animation-iteration-count: infinite;
+    /* iteration : 反復 */
+    /* 動きの加速度 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
+    /* 動きの指定 */
+    animation-name: kaiten2;
+}
+
+@keyframes kaiten2 {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
 
 
 
@@ -689,80 +765,58 @@ section {
     text-decoration: none;
     color: #000;
     position: relative;
-    z-index: 1;
 }
 
 
 .sub_r_rinkbox a::after {
     position: absolute;
     left: 5%;
-    top: 15%;
+    bottom: 0%;
     content: '';
     width: 100%;
     height: 1px;
     background: #000000;
-    transform: scale(1.2, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
-    transform-origin: right top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の右端*/
-    transition: transform 0.5s; /*変形の時間*/
-    z-index: -1;
-    }
-    
-    a:hover::after {
-    transform: scale(0.01, 1);     /*ホバー後、x軸方向に1.2（相対値）伸長 & y軸も同じイメージで伸長*/
-    }
+    transform: scale(1.2, 1);
+    /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+    transform-origin: right top;
+    /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の右端*/
+    transition: transform 0.5s;
+    /*変形の時間*/
+    z-index: 1;
+}
+
+a:hover::after {
+    transform: scale(0.01, 1);
+    /*ホバー後、x軸方向に1.2（相対値）伸長 & y軸も同じイメージで伸長*/
+}
 
 
 .fadein_n3 {
     /* 時間の指定 */
-    animation-duration: 2s;  /* duration : 間隔 */
+    animation-duration: 2s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-normal3;
     animation-fill-mode: forwards;
 }
 
 @keyframes fadein-normal3 {
-    0%{
+    0% {
         opacity: 0;
     }
 
-    100%{
+    100% {
         opacity: 1;
     }
 }
 
 
-.rightunder_imgbox {
-    position: absolute;
-    bottom: 45%;
-    left: -30%;
-    width: 20%;
-}
-
-.rightunder_imgbox img {
-    width: 100%;
-    /* 時間の指定 */
-    animation-duration: 15s;  /* duration : 間隔 */
-    /* アニメーション実行回数の指定 */
-    animation-iteration-count: infinite; /* iteration : 反復 */
-    /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
-    /* 動きの指定 */
-    animation-name: kaiten2;
-}
-
-@keyframes kaiten2 {
-    0%{
-        transform: rotate(0);
-    }
-
-    100%{
-        transform: rotate(-360deg);
-    }
-}
 
 
 /* section skillsの部分 */
@@ -845,7 +899,7 @@ section {
 
 .Text-Span.line_lr:after {
     width: 100%;
-  }
+}
 
 /* .skill_textline {
     position: absolute;
@@ -890,51 +944,57 @@ section {
     color: #acacac;
 }
 
-.skill_textunder_sub_lbox{
+.skill_textunder_sub_lbox {
     width: 15%;
 }
 
-.skill_textunder_sub_rbox{
+.skill_textunder_sub_rbox {
     width: 85%;
 }
 
 
 .fadein_n4 {
     /* 時間の指定 */
-    animation-duration: 1.0s;  /* duration : 間隔 */
+    animation-duration: 1.0s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-normal4;
     animation-fill-mode: forwards;
 }
 
 @keyframes fadein-normal4 {
-    0%{
+    0% {
         opacity: 0;
     }
 
-    100%{
+    100% {
         opacity: 1;
     }
 }
 
 .fadein_n5 {
     /* 時間の指定 */
-    animation-duration: 3s;  /* duration : 間隔 */
+    animation-duration: 3s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-normal5;
     animation-fill-mode: forwards;
 }
 
 @keyframes fadein-normal5 {
-    0%{
+    0% {
         opacity: 0;
     }
 
@@ -942,7 +1002,7 @@ section {
         opacity: 0;
     } */
 
-    100%{
+    100% {
         opacity: 1;
     }
 }
@@ -956,7 +1016,7 @@ section {
 .work_section {
     padding-top: 20vh;
     /* height: 300vh; */
-    height: 160vh;
+    height: 210vh;
 
     /* background-color: pink; */
 }
@@ -984,7 +1044,7 @@ section {
     display: block;
     width: 30%;
     height: 40vh;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
     color: #000;
     text-decoration: none;
 
@@ -1000,24 +1060,27 @@ section {
 
 .fadein_b2 {
     /* 時間の指定 */
-    animation-duration: 1.0s;  /* duration : 間隔 */
+    animation-duration: 1.0s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: fadein-bottom2;
     animation-fill-mode: forwards;
 }
 
 @keyframes fadein-bottom2 {
-    0%{
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
 
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -1032,17 +1095,18 @@ section {
 }
 
 @keyframes fadein-bottom2 {
-    0%{
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
 
-    33%{opacity: 0;
+    33% {
+        opacity: 0;
         transform: translateY(20px);
     }
 
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -1057,22 +1121,23 @@ section {
 }
 
 @keyframes fadein-bottom2 {
-    0%{
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
 
-    50%{opacity: 0;
+    50% {
+        opacity: 0;
         transform: translateY(20px);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-
+/* 追記 .fadein_b2_4*/
 .fadein_b2_4 {
     animation-duration: 2.5s;
     animation-iteration-count: 1;
@@ -1082,16 +1147,17 @@ section {
 }
 
 @keyframes fadein-bottom2 {
-    0%{
+    0% {
         opacity: 0;
         transform: translateY(20px);
     }
 
-    50%{opacity: 0;
+    50% {
+        opacity: 0;
         transform: translateY(20px);
     }
 
-    100%{
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -1102,13 +1168,16 @@ section {
 .art_imgbox {
     width: 100%;
     height: 70%;
+    /*追記*/
     border: 1px solid #acacac;
     overflow: hidden;
+
 }
 
 .art_imgbox img {
     width: 100%;
     height: 100%;
+    /*追記*/
     transition: all 0.5s;
 }
 
@@ -1127,6 +1196,13 @@ section {
 .art_textbox h6:nth-child(2) {
     font-size: 1.8rem;
     font-weight: normal;
+}
+
+.art_textbox h6:nth-child(3),
+.art_textbox h6:nth-child(4),
+.art_textbox h6:nth-child(5) {
+    font-weight: normal;
+    padding-left: 0.1em;
 }
 
 
@@ -1176,10 +1252,11 @@ section {
 }
 
 
-.contact_box{
+.contact_box {
     width: 100%;
     height: 30%;
 }
+
 .adress_box {
     width: 100%;
     height: 70%;
@@ -1200,18 +1277,18 @@ section {
 
 .adress_box {
     display: flex;
-    justify-content: center;  
-    align-items: center;  
+    justify-content: center;
+    align-items: center;
 }
 
 .adress_box h1 {
     font-size: 8rem;
-    font-family:serif;
+    font-family: serif;
     font-weight: bold;
-    color:rgba(0,0,0,.0);
+    color: rgba(0, 0, 0, .0);
     /* text-align:center; */
-   -webkit-text-stroke: 1px #fff;
-   transition: all 1.0s;
+    -webkit-text-stroke: 1px #fff;
+    transition: all 1.0s;
 }
 
 .adress_box:hover {
@@ -1233,22 +1310,25 @@ section {
 
 .height_up1 {
     /* 時間の指定 */
-    animation-duration: 0.5s;  /* duration : 間隔 */
+    animation-duration: 0.5s;
+    /* duration : 間隔 */
     /* アニメーション実行回数の指定 */
-    animation-iteration-count: 1; /* iteration : 反復 */
+    animation-iteration-count: 1;
+    /* iteration : 反復 */
     /* 動きの加速度 */
-    animation-timing-function: linear; /* timing : 時間調整 , function : 関数 */
+    animation-timing-function: linear;
+    /* timing : 時間調整 , function : 関数 */
     /* 動きの指定 */
     animation-name: height1;
     animation-fill-mode: forwards;
 }
 
 @keyframes height1 {
-    0%{
+    0% {
         height: 5vh;
     }
 
-    100%{
+    100% {
         height: 50vh;
     }
 }
@@ -1281,7 +1361,7 @@ footer {
 }
 
 .foot_lbox small {
-    font-size: 1.0rem;
+    font-size: 1.2rem;
     color: #acacac;
 }
 
@@ -1322,10 +1402,10 @@ footer {
 
 /* ---------------------------------------------- */
 
-  /* レスポンシブ準備 */
+/* レスポンシブ準備 */
 
 
-  .openbtn {
+.openbtn {
     /* background: #fff; */
     width: 50px;
     height: 50px;
@@ -1348,7 +1428,7 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-60%);
+    transform: translate(-50%, -60%);
     transition: all 0.5s;
 }
 
@@ -1356,7 +1436,7 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-60%);
+    transform: translate(-50%, -60%);
     color: #fff;
     opacity: 0;
     transition: all 0.5s;
@@ -1365,7 +1445,7 @@ footer {
 
 
 
- /* レスポンシブ */
+/* レスポンシブ */
 
 @media screen and (max-width: 1300px) {
     html {
@@ -1376,6 +1456,13 @@ footer {
 @media screen and (max-width: 1200px) {
     html {
         font-size: 8px;
+    }
+
+    .rightunder_imgbox {
+        position: absolute;
+        bottom: 1%;
+        right: -5%;
+        width: 35%;
     }
 }
 
@@ -1447,11 +1534,6 @@ footer {
         margin: 0;
     }
 
-    .rightunder_imgbox {
-        bottom: 40%;
-        left: -18%;
-    }
-
 
 
     .sub_r_textbox p {
@@ -1501,6 +1583,54 @@ footer {
     /* works */
 
 
+    .work_section {
+        padding-top: 15vh;
+        height: 315vh;
+    }
+
+
+    .works_box {
+        width: 95%;
+        margin: 8vh auto 0;
+    }
+
+    .works_box a {
+        display: block;
+        width: 48%;
+        height: 45vh;
+    }
+
+
+
+    /* 浮かぶ上がるタイミング調整のために
+        北関東水族館の『bottom2_3をbottom2と同じものに改ざん』 */
+
+
+    .fadein_b2_3 {
+        animation-duration: 1.0s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-name: fadein-bottom2;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadein-bottom2 {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* 50%{opacity: 0;
+            transform: translateY(20px);
+        } */
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
     /* メール */
 
 
@@ -1509,11 +1639,11 @@ footer {
     }
 
     @keyframes height1 {
-        0%{
+        0% {
             height: 5vh;
         }
-    
-        100%{
+
+        100% {
             height: 30vh;
         }
     }
@@ -1547,12 +1677,13 @@ footer {
         font-size: 1.2rem;
     }
 
-    .sub_r_textbox h5, .sub_r_rinkbox h5 {
+    .sub_r_textbox h5,
+    .sub_r_rinkbox h5 {
         font-size: 2rem;
     }
 
     .sub_r_textbox p {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
 
@@ -1563,6 +1694,16 @@ footer {
 
     .adress_box h1 {
         font-size: 4.5rem;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    .rightunder_imgbox {
+        position: absolute;
+        bottom: 2%;
+        right: -5%;
+        width: 35%;
     }
 }
 
@@ -1602,7 +1743,7 @@ footer {
         transition: all 1.0s;
     }
 
-    
+
 
     .active span:nth-child(1) {
         opacity: 0;
@@ -1631,7 +1772,7 @@ footer {
         /* margin-left: 5%;
         margin-top: 45%; */
     }
-    
+
     li {
         list-style-type: none;
         padding-left: 5%;
@@ -1639,7 +1780,7 @@ footer {
         margin: 0;
         /* border-bottom: 1px solid #fff; */
     }
-    
+
     nav ul li a {
         color: #fff;
         padding: 0;
@@ -1657,10 +1798,9 @@ footer {
 
 
     .header-l-box {
-        width: 5%;
-        height: 90%;
-        margin-left: 0%;
-        width: 10%;
+        margin-left: 0.5%;
+        min-width: 40px;
+        padding-top: 10px;
     }
 
 
@@ -1714,7 +1854,7 @@ footer {
     }
 
     .maintitle_box {
-        width: 30%;
+        width: 35%;
         height: 100%;
     }
 
@@ -1742,16 +1882,18 @@ footer {
         height: 125%;
     }
 
+    .rightunder_imgbox {
+        position: absolute;
+        bottom: -22%;
+        right: 2%;
+        width: 25%;
+    }
+
 
     .about_sub_rbox {
         width: 95%;
         margin: 0 auto;
-    }
-
-    .rightunder_imgbox {        
-        top: -230%;
-        left: 70%;
-        width: 30%
+        padding-top: 30px;
     }
 
     .sub_r_textbox {
@@ -1764,6 +1906,9 @@ footer {
         margin-bottom: 5%;
     }
 
+    .sub_r_rinkbox {
+        height: 10%;
+    }
 
 
 
@@ -1806,7 +1951,7 @@ footer {
         font-size: 3.5rem;
     }
 
-    
+
 
 
 
@@ -1815,7 +1960,7 @@ footer {
 
     .work_section {
         padding-top: 15vh;
-        height: 200vh;
+        height: 310vh;
     }
 
 
@@ -1843,18 +1988,18 @@ footer {
         animation-name: fadein-bottom2;
         animation-fill-mode: forwards;
     }
-    
+
     @keyframes fadein-bottom2 {
-        0%{
+        0% {
             opacity: 0;
             transform: translateY(20px);
         }
-    
+
         /* 50%{opacity: 0;
             transform: translateY(20px);
         } */
-    
-        100%{
+
+        100% {
             opacity: 1;
             transform: translateY(0);
         }
@@ -1866,17 +2011,17 @@ footer {
     /* フッター */
 
     @keyframes height1 {
-        0%{
+        0% {
             height: 5vh;
         }
-    
-        100%{
+
+        100% {
             height: 20vh;
         }
     }
 }
 
-    
+
 
 
 
@@ -1904,6 +2049,60 @@ footer {
     .rightover_imgbox {
         top: 15%;
     }
+
+
+    /* works */
+
+
+    .work_section {
+        padding-top: 15vh;
+        height: 240vh;
+    }
+
+
+    .works_box {
+        width: 95%;
+        margin: 3vh auto 0;
+    }
+
+    .works_box a {
+        display: block;
+        width: 48%;
+        height: 30vh;
+
+        margin-bottom: 15%;
+    }
+
+
+
+    /* 浮かぶ上がるタイミング調整のために
+        北関東水族館の『bottom2_3をbottom2と同じものに改ざん』 */
+
+
+    .fadein_b2_3 {
+        animation-duration: 1.0s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-name: fadein-bottom2;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadein-bottom2 {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* 50%{opacity: 0;
+            transform: translateY(20px);
+        } */
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
 
 
 
@@ -1949,14 +2148,18 @@ footer {
     }
 
 
-
-
     .rightunder_imgbox {
-        top: -200%;
+        position: absolute;
+        bottom: -20%;
+        right: 5%;
+        width: 22%;
     }
 
-
-
+    .about_sub_rbox {
+        width: 95%;
+        margin: 0 auto;
+        padding-top: 60px;
+    }
 
 
     .skill_textoverbox h2 {
@@ -1969,7 +2172,13 @@ footer {
 
 
 
+    /* works */
 
+
+    .work_section {
+        padding-top: 15vh;
+        height: 230vh;
+    }
 
     .art_textbox h6:nth-child(2) {
         font-size: 1.5rem;
@@ -2028,7 +2237,15 @@ footer {
 
 
     .maintitle_box {
-        width: 40%;
+        width: 45%;
+    }
+
+
+    .rightunder_imgbox {
+        position: absolute;
+        bottom: -20%;
+        right: 8%;
+        width: 20%;
     }
 
 
@@ -2036,6 +2253,60 @@ footer {
     .sub_r_textbox p {
         font-size: 1.0rem;
     }
+
+
+    /* works */
+
+
+    .work_section {
+        padding-top: 15vh;
+        height: 190vh;
+    }
+
+
+    .works_box {
+        width: 95%;
+        margin: 1vh auto 0;
+    }
+
+    .works_box a {
+        display: block;
+        width: 48%;
+        height: 20vh;
+
+        margin-bottom: 20%;
+    }
+
+
+
+    /* 浮かぶ上がるタイミング調整のために
+        北関東水族館の『bottom2_3をbottom2と同じものに改ざん』 */
+
+
+    .fadein_b2_3 {
+        animation-duration: 1.0s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-name: fadein-bottom2;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadein-bottom2 {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        /* 50%{opacity: 0;
+            transform: translateY(20px);
+        } */
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
 
 
 
@@ -2072,27 +2343,31 @@ footer {
         position: fixed;
         top: 45%;
         left: 50%;
-        transform: translate(-40%,-50%);
+        transform: translate(-40%, -50%);
         width: 25ch;
         animation: typing 2s steps(12), effect .5s step-end infinite alternate;
     }
-     
+
     @keyframes typing {
-      from {
-        width: 0
-      }
+        from {
+            width: 0
+        }
     }
-        
+
     @keyframes effect {
-      50% {
-        border-color: transparent
-      }
+        50% {
+            border-color: transparent
+        }
+    }
+
+    nav {
+        height: 8vh;
     }
 
     /* メインビジュアル */
 
     .main-visual {
-        height: 110vh;
+        height: 95vh;
     }
 
     .rightover_imgbox {
@@ -2128,7 +2403,7 @@ footer {
     /* 各セクション共通 */
 
     .maintitle_box {
-        width: 50%;
+        width: 40%;
     }
 
     .maintitle_box h1 {
@@ -2145,7 +2420,7 @@ footer {
 
 
     /* About */
-    
+
     .about_section {
         height: 140vh;
     }
@@ -2160,7 +2435,14 @@ footer {
     }
 
     .rightunder_imgbox {
-        top: -380%;
+        position: absolute;
+        bottom: 3%;
+        right: 8%;
+        width: 22%;
+    }
+
+    .about_sub_rbox {
+        padding-top: 0px;
     }
 
     .sub_r_textbox h5 {
@@ -2233,7 +2515,7 @@ footer {
 
     .work_section {
         padding-top: 10vh;
-        height: 320vh;
+        height: 510vh;
     }
 
     .works_box {
@@ -2255,11 +2537,11 @@ footer {
     }
 
     @keyframes height1 {
-        0%{
+        0% {
             height: 5vh;
         }
-    
-        100%{
+
+        100% {
             height: 15vh;
         }
     }
@@ -2292,7 +2574,7 @@ footer {
 
 
     .main-visual {
-        height: 103vh;
+        height: 90vh;
     }
 
 
@@ -2308,14 +2590,21 @@ footer {
         font-size: 1.8rem;
     }
 
+    .maintitle_box {
+        width: 50%;
+    }
 
 
     .rightunder_imgbox {
-        top: -370%;
+        position: absolute;
+        bottom: 5%;
+        right: 8%;
+        width: 22%;
     }
 
+
     .work_section {
-        height: 290vh;
+        height: 460vh;
     }
 
     .works_box a {
@@ -2336,7 +2625,7 @@ footer {
 
 
     .main-visual {
-        height: 100vh;
+        height: 83vh;
     }
 
 
@@ -2354,12 +2643,8 @@ footer {
 
 
 
-    .rightunder_imgbox {
-        top: -360%;
-    }
-
     .work_section {
-        height: 255vh;
+        height: 405vh;
     }
 
     .works_box a {
